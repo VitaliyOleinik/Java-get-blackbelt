@@ -19,6 +19,12 @@ public class HashCodeEx1 {
         Student st5 = new Student("Igor", "S", 4);
         boolean result = map.containsKey(st4);
         System.out.println(result);
+
+        for (Map.Entry<Student, Double> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        Map<Integer, String> map2 = new HashMap<>(16, 0.75f);
     }
 }
 
