@@ -1,5 +1,6 @@
 package work_with_files;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -17,9 +18,8 @@ public class FileWriterEx {
                 "поддерживая друг друга, мы сможем создать лучшее будущее " +
                 "для всех.";
 
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter("/home/kardin/development/Java-get-blackbelt/files/test1.txt", true);
+        try (FileWriter writer = new FileWriter("/home/kardin/development/Java-get-blackbelt/files/test1.txt", true);
+             FileReader fileReader = new FileReader("/home/kardin/development/Java-get-blackbelt/files/test1.txt")) {
             for (int i = 0; i < s.length(); i++) {
                 writer.write(s.charAt(i));
             }
@@ -27,8 +27,6 @@ public class FileWriterEx {
             System.out.println("Done!");
         } catch (IOException e) {
             throw new RuntimeException(e);
-        } finally {
-            writer.close();
         }
     }
 }
