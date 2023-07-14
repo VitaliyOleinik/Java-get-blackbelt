@@ -31,6 +31,16 @@ public class ChannelBufferEx1 {
 
             System.out.println(stix);
 
+            String text = "\n\"The only way to do great work is to love what you do.\" - Steve Jobs";
+
+//            ByteBuffer buffer2 = ByteBuffer.allocate(text.getBytes().length);
+//            buffer2.put(text.getBytes());
+//            buffer2.flip();
+//            channel.write(buffer2);
+
+            ByteBuffer buffer2 = ByteBuffer.wrap(text.getBytes());
+            channel.write(buffer2);
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
